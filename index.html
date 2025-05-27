@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visualización: Acceso a Salud en la RM</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <h1>Desigualdad Territorial en el Acceso a Centros de Salud</h1>
+      <p>
+        Esta visualización muestra cómo varía el acceso a centros de salud en la Región Metropolitana,
+        ajustado por población. Explora los patrones espaciales haciendo zoom y accede a datos por comuna.
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <section id="mapa">
+      <div id="map"></div>
+    </section>
+
+    <section id="explicacion" class="container">
+      <h2>Origen y procesamiento de los datos</h2>
+      <p>
+        Los datos provienen del Ministerio de Salud y fueron limpiados para asegurar la validez de las coordenadas.
+        Las tasas comunales fueron calculadas como centros por cada 100.000 habitantes, usando datos del INE 2022.
+      </p>
+
+      <h2>Justificación visual</h2>
+      <p>
+        El <strong>mapa de calor</strong> permite captar rápidamente las zonas críticas con bajo acceso. Al hacer zoom,
+        el sistema cambia a <strong>íconos individuales</strong> para permitir el análisis detallado por centro.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Visualización desarrollada por Martin Castro y Victoria Otarola — Mayo 2025</p>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

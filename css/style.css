@@ -1,0 +1,77 @@
+/* Fuente general */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    color: #2c2c2c;
+    background-color: #f5f7fa;
+    line-height: 1.6;
+  }
+  
+  .container {
+    max-width: 960px;
+    margin: auto;
+    padding: 1.5rem;
+  }
+  
+  /* Hero principal */
+  header.hero {
+    background: linear-gradient(to right, #e0f3f8, #a8ddb5);
+    color: #004d40;
+    padding: 3rem 1rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  .hero h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Mapa */
+  #map {
+    height: 80vh;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    margin-bottom: 2rem;
+  }
+  
+  /* Sección explicativa */
+  #explicacion h2 {
+    margin-top: 2.5rem;
+    color: #0868ac;
+    font-size: 1.4rem;
+  }
+  
+  #explicacion p {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.85rem;
+    color: #555;
+    background-color: #ffffff;
+    box-shadow: 0 -1px 5px rgba(0,0,0,0.05);
+  }
+  
+  /* Leyenda Leaflet */
+  .legend {
+    background: white;
+    padding: 10px;
+    line-height: 18px;
+    color: #333;
+    font-size: 14px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+  }
+  
+  .legend h4 {
+    margin: 0 0 5px;
+    font-weight: bold;
+    font-size: 15px;
+  }
+  
