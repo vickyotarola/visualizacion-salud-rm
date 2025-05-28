@@ -4,10 +4,11 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution: "&copy; OpenStreetMap contributors"
 }).addTo(map);
 
-// Diccionarios de datos
+// Datos
 let poblacionData = {};
 let tasaData = {};
 let centrosData = [];
+let centrosLayer = L.layerGroup().addTo(map);
 
 function normalizar(str) {
   return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase().trim();
@@ -63,8 +64,13 @@ async function iniciar() {
         }
       }).addTo(map);
 
-      agregarCentros();
+      renderizarCentros("Todos");
     });
+
+  document.getElementById("filtro").addEventListener("change", () => {
+    const valor = document.getElementById("filtro").value;
+    renderizarCentros(valor);
+  });
 }
 
 function nivelAtencion(tipo) {
@@ -81,12 +87,14 @@ function nivelAtencion(tipo) {
 function colorPorNivel(nivel) {
   switch (nivel) {
     case "Primaria": return "red";
-    case "Secundaria": return "orange";
-    default: return "green";
+    case "Secundaria": return "yellow";
+    default: return "gray";
   }
 }
 
-function agregarCentros() {
+function renderizarCentros(filtro) {
+  centrosLayer.clearLayers();
+
   centrosData.forEach(d => {
     const lat = parseFloat(d.Latitud);
     const lon = parseFloat(d.Longitud);
@@ -96,14 +104,14 @@ function agregarCentros() {
     const nivel = nivelAtencion(tipo);
     const color = colorPorNivel(nivel);
 
-    if (!isNaN(lat) && !isNaN(lon)) {
-      L.circleMarker([lat, lon], {
+    if ((filtro === "Todos" || filtro === nivel) && !isNaN(lat) && !isNaN(lon)) {
+      const marker = L.circleMarker([lat, lon], {
         radius: 5,
         color: color,
         fillColor: color,
         fillOpacity: 0.8
-      }).bindPopup(`<strong>${nombre}</strong><br>${comuna}<br>Tipo: ${tipo}<br>Nivel: ${nivel}`)
-        .addTo(map);
+      }).bindPopup(`<strong>${nombre}</strong><br>${comuna}<br>Tipo: ${tipo}<br>Nivel: ${nivel}`);
+      centrosLayer.addLayer(marker);
     }
   });
 }
@@ -113,7 +121,7 @@ const legend = L.control({ position: "bottomright" });
 legend.onAdd = function(map) {
   const div = L.DomUtil.create("div", "info legend");
   const niveles = ["Primaria", "Secundaria", "Otro"];
-  const colores = ["red", "orange", "green"];
+  const colores = ["red", "yellow", "gray"];
 
   div.innerHTML = "<strong>Nivel Atención</strong><br>";
   for (let i = 0; i < niveles.length; i++) {
