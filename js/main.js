@@ -86,11 +86,12 @@ function nivelAtencion(tipo) {
 
 function colorPorNivel(nivel) {
   switch (nivel) {
-    case "Primaria": return "red";
-    case "Secundaria": return "yellow";
-    default: return "gray";
+    case "Primaria": return "#e63946";    // rojo fuerte
+    case "Secundaria": return "#ffbe0b";  // amarillo dorado
+    default: return "#6c757d";            // gris sobrio
   }
 }
+
 
 function renderizarCentros(filtro) {
   centrosLayer.clearLayers();
