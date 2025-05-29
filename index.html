@@ -12,16 +12,27 @@
 <body>
   <header class="hero">
     <div class="container">
-      <h1>Desigualdad Territorial en el Acceso a Centros de Salud</h1>
+      <h1>Acceso desigual a la salud en Santiago</h1>
       <p>
-        Esta visualización muestra cómo varía el acceso a centros de salud en la Región Metropolitana,
-        ajustado por población. Explora los patrones espaciales haciendo zoom y accede a datos por comuna.
+        ¿Vivir más lejos de una clínica te hace más vulnerable? Esta visualización interactiva revela
+        cómo la ubicación geográfica afecta el acceso a centros de salud públicos y privados en la Región Metropolitana de Chile.
       </p>
+      <div class="divider"></div>
+      <p class="authors">por Victoria Otarola & Martín Castro — Mayo 2025</p>
     </div>
   </header>
+  
 
   <main>
     <div class="filtro-nivel" style="padding: 1em; text-align: center;">
+      <section class="contexto" style="text-align: center; max-width: 800px; margin: 0 auto 3rem;">
+        <p style="font-size: 1.2rem; color: #555;">
+          Las zonas de alta densidad habitacional no siempre tienen acceso proporcional a centros médicos.
+          Al seleccionar un nivel de atención, podrás ver si hay comunas que dependen solo de servicios primarios,
+          mientras otras cuentan con infraestructura secundaria o especializada.
+        </p>
+      </section>
+      
       <label for="filtro">Filtrar por nivel de atención: </label>
       <select id="filtro">
         <option value="Todos">Todos</option>
@@ -36,19 +47,27 @@
     </section>
 
     <section id="explicacion" class="container">
-      <h2>Origen y procesamiento de los datos</h2>
+      <h2>¿De dónde vienen los datos?</h2>
       <p>
-        Los datos provienen del Ministerio de Salud y fueron limpiados para asegurar la validez de las coordenadas.
-        Las tasas comunales fueron calculadas como centros por cada 100.000 habitantes, usando datos del INE 2022.
+        Esta visualización combina datos del Ministerio de Salud (2022) con estadísticas poblacionales del INE.
+        Se procesaron y depuraron más de 1.200 establecimientos, considerando coordenadas y categorización por nivel de atención.
       </p>
-
-      <h2>Justificación visual</h2>
+    
+      <h2>¿Qué buscamos mostrar?</h2>
       <p>
-        El <strong>mapa de calor</strong> permite captar rápidamente las zonas críticas con bajo acceso. Al hacer zoom,
-        el sistema cambia a <strong>íconos individuales</strong> para permitir el análisis detallado por centro.
+        Usamos una combinación de <strong>mapa de calor</strong> y <strong>puntos interactivos</strong> para destacar patrones de desigualdad territorial.
+        El mapa de calor resalta comunas con menor número de centros por 100.000 habitantes, mientras los puntos permiten explorar 
+        establecimientos específicos según nivel de atención: <span style="color: red;">Primaria</span>, <span style="color: goldenrod;">Secundaria</span> y <span style="color: gray;">Otro</span>.
       </p>
+    
+      <h2>¿Cómo leer esta visualización?</h2>
+      <ul>
+        <li><strong>Color del punto</strong>: indica el nivel de atención del centro de salud.</li>
+        <li><strong>Zoom</strong>: aleja para ver desigualdad estructural, acerca para analizar comunas y establecimientos.</li>
+        <li><strong>Filtro</strong>: selecciona tipo de atención para descubrir brechas ocultas por la agregación general.</li>
+      </ul>
     </section>
-  </main>
+    
 
   <footer>
     <p>Visualización desarrollada por Martin Castro y Victoria Otarola — Mayo 2025</p>

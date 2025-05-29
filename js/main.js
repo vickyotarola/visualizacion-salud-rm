@@ -21,7 +21,7 @@ function cargarCSV(url) {
       header: true,
       skipEmptyLines: true,
       complete: (results) => resolve(results.data)
-    });
+    }); 
   });
 }
 
